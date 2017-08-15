@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Saif's logo maker</title>
+    <style>
+      textarea {
+            width: 15%;
+            height: 85px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            resize: true;
+            border-color: #FFD700;
+            border-radius: 20px;
+            position: relative;
+            top: 275px;
+            left: 30%;
+            font-size: 16px;
+      }
+      div {
+            background-color: lightgrey;
+            width: 100%;
+            padding: 25px;
+            position: fixed;
+      }
+      input {
+        position: relative;
+        top: 25%;
+      }
+      button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+    </style>
+
+  </head>
+  <body>
+    <div style="background-color: #030303;">
+      <a href="what.html"style="text-decoration: none; font-size: 150%; color: #FFD700";>T Text</a>
+      <a href="#"style="text-decoration: none; margin: 100px; font-size: 150%"> ▲ Shape </a>
+      <a href="#"style="text-decoration: none; margin: 5px; font-size: 150%"> 🛋 Icon </a>
+    </div>
+    <div style="width: 15%; height: 642px; position: fixed; left: 82.5%; background-color: #FFD700">
+    <p> Font Size </p>
+    <input type="number" id="fontSizer" value="12"></input>
+    <p> Font Color </p>
+    <input type="color" id="fontColorer"></input>
+    <button type="button" onclick=changeColor()>Update</button>
+    <p> Font Family </p>
+ <select onclick=changeMyFont() class="form-control" id='fontFamilier' selected value="Arial"style="width:75%; height:5%">
+   <option value='Times New Roman'>Times New Roman</option>
+   <option value='Georgia'>Georgia</option>
+   <option value='Arial'>Arial</option>
+   <option value='Comic Sans MS'>Comic Sans MS</option>
+   <option value='Courier New'>Courier New</option>
+</select>
+    <p> Text Allignment </p>
+    <select onClick=changeMyAllignment() class="form-control" id='fontAlligner' selected value = "Left" style="width:75%; height:5%">
+      <option value='Left'>Left</option>
+      <option value='Center'>Center</option>
+      <option value='Right'>Right</option>
+    </select>
+    <p> Font Attributes </p>
+    <button onClick=boldMe() style="font-weight: bold; padding: 10px 15px;">Bold on</button>
+    <button onClick=unboldMe() style="font-weight: normal">Bold off</button>
+    <button onClick=italicMe() style="font-style: italic">Italic on</button>
+    <button onClick=unitalicMe() style="font-style: normal">Italic off</button>
+    <button onClick=clean() style="position:relative;right: 125px; top: 50px">Clean</button>
+    <p style="position: relative;top: 50px"> Actions </p>
+    <input style="top: 50px"type="range" id="rotated" onChange=rotateMe() name="points" min="0" max="180" value="90" step="20">
+    <input onClick=deleteMe() style="height:5%; top:50px;position: relative; left: 25px" type="image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/3058-200.png" />
+    </div>
+    <form action="">
+    Font Size <br>
+    <textarea type="text" id="Keyed" placeholder="Text"></textarea>
+    </form>
+    <script>
+    function deleteMe() {
+      var elem = document.getElementById('Keyed');
+      elem.parentNode.removeChild(elem);
+      return false;
+    }
+    function boldMe() {
+        document.getElementById("Keyed").style.fontWeight = "bold";
+    }
+    function unboldMe() {
+        document.getElementById("Keyed").style.fontWeight = "normal";
+    }
+    function italicMe(){
+      document.getElementById("Keyed").style.fontStyle = "italic";
+    }
+    function unitalicMe() {
+        document.getElementById("Keyed").style.fontStyle = "normal";
+    }
+    function clean() {
+        document.getElementById("Keyed").style.fontWeight = "normal";
+        document.getElementById("Keyed").style.fontStyle = "normal";
+    }
+    function rotateMe() {
+      document.getElementById("Keyed").rotate(20);
+    }
+    function changeMyAllignment() {
+      var aligned = document.getElementById('fontAlligner').value;
+      document.getElementById("Keyed").style.textAlign = aligned;
+    }
+    function changeColor(){
+      var inputColor = document.getElementById("fontColorer").value;
+      document.getElementById("Keyed").style.color = inputColor;
+    }
+    function changeMyFont() {
+      var currentFont = document.getElementById("fontFamilier").value;
+      document.getElementById("Keyed").style.fontFamily = currentFont;
+    }
+    //alert(document.getElementById("fontColorer").style.color);
+    document.getElementById('fontSizer').onchange = function(e){
+    var keyCode = e.keyCode || e.which;
+    var currentSize = document.getElementById("fontSizer").value;
+    document.getElementById("Keyed").style.fontSize = currentSize + "px"
+  }
+    </script>
+  </body>
+</html>
