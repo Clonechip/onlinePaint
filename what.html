@@ -3,61 +3,123 @@
   <head>
     <meta charset="utf-8">
     <title>Saif's logo maker</title>
-    <style>
-      textarea {
-            width: 15%;
-            height: 85px;
-            padding: 12px 20px;
-            box-sizing: border-box;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            background-color: #FFFFFF;
-            resize: true;
-            border-color: #FFD700;
-            border-radius: 20px;
-            position: relative;
-            top: 275px;
-            left: 30%;
-            font-size: 16px;
-      }
-      div {
-            background-color: lightgrey;
-            width: 100%;
-            padding: 25px;
-            position: fixed;
-      }
-      input {
-        position: relative;
-        top: 25%;
-      }
-      button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 17px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-    </style>
-
+    <link rel="stylesheet" href="/public/css/bootstrap.css" />
+  	<link rel="stylesheet" href="/public/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type = "text/javascript" src = "/public/js/alignMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/boldMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/borderMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/changeLogosText.js"></script>
+    <script type = "text/javascript" src = "/public/js/cleanMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/colorMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/deleteMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/flipMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/fontMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/italicMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/moveMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/rotateMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/sizeMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/unboldMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/unflipMe.js"></script>
+    <script type = "text/javascript" src = "/public/js/unitalicMe.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "/public/css/goButton.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "/public/css/main.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "/public/css/textEditor.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "/public/css/welcome.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/signup.css"/>
   </head>
-  <body>
-    <div style="background-color: #030303;">
-      <a href="what.html"style="text-decoration: none; font-size: 150%; color: #FFD700";>T Text</a>
-      <a href="#"style="text-decoration: none; margin: 100px; font-size: 150%"> ▲ Shape </a>
-      <a href="#"style="text-decoration: none; margin: 5px; font-size: 150%"> 🛋 Icon </a>
+  <body id='body'>
+    <div id="welcome">
+       <div id="topbar" style="z-index: 2; width: 54%; height: 3%; border-radius: 20px;">
+        <img style="border-radius: 20px; width: 5%; height: 10%; z-index: -1; opacity: 1; position: fixed; left: 20%; top: 20%;" src="images\logoWithWhiteBackground.png">
+        <p style="color: #ffffff; position: relative; left: 580px; top: -20px"> Fastest logo maker online </p>
+        <select id="Categories" class="form-control" style="position: relative; left: 65%; top: -40px; width: 35%; height: 30px; font-size: 15px; font-weight: bold; background-color: #408C4C; color: #FFFFFF">
+          <option value='All' >All Categories</option>
+          <option value='Business & Consulting' >Business & Consulting</option>
+          <option value='Children & Child Care' >Children & Child Care</option>
+          <option value='Cleaning & Maintenance' >Cleaning & Maintenance</option>
+          <option value='Communications' >Communications</option>
+          <option value='Computer & Internet' >Computer & Internet</option>
+          <option value='Construction & Tools' >Construction & Tools</option>
+          <option value='Education' >Education</option>
+          <option value='Fashion & Beauty' >Fashion & Beauty</option>
+          <option value='Food & Drink' >Food & Drink</option>
+          <option value='Games & Recreation' >Games & Recreation</option>
+          <option value='Home Furnishing' >Home Furnishing</option>
+          <option value='Industrial' >Industrial</option>
+          <option value='Medical & Pharmaceutical' >Medical & Pharmaceutical</option>
+          <option value='Photography' >Photography</option>
+          <option value='Politics' >Politics</option>
+          <option value='Real Estate & Mortage' >Real Estate & Mortage</option>
+        </select>
+        <textarea id="companyName" style="font-size: 20px; font-weight: bold; width: 50%; height: 60px; resize: none; position: relative; left: -275px; top: 50%;">Company Name</textarea>
+        <button class="button" onclick=changeLogosText() ><span>Go!</span>
+        <span id="imagee"> </span>
+        <div id="nameOnLogo"> </div>
+      </div>
     </div>
-    <div style="width: 15%; height: 642px; position: fixed; left: 82.5%; background-color: #FFD700">
+    <div id="welcomeBackground" style="width: 100%; height: 100%; z-index: -5">
+
+    <div id="topbar">
+      <a href="what.html"style="position: relative; left: 100px;text-decoration: none; font-size: 150%; color: #FFD700";>T Text</a>
+      <a href="#"style="position: relative; left: 100px;text-decoration: none; margin: 100px; font-size: 150%"> ▲ Shape </a>
+      <a href="#"style="position: relative; left: 100px;text-decoration: none; margin: 5px; font-size: 150%"> 🛋 Icon </a>
+      <a href="save.html"style="position: relative; left: 200px; color: #EE0000; text-decoration: none; margin: 5px; font-size: 200%"> Save </a>
+      <button onclick="document.getElementById('login').style.display='block'" id='signUpButton'style="background-color: transparent; position: relative; left: 250px; color: #EE0000; width: 10%; text-decoration: none; margin: 5px; font-size: 150%"> Login </button>
+      <button onclick="document.getElementById('id01').style.display='block'" id='signUpButton'style="background-color: transparent; position: relative; left: 260px; color: #EE0000; width: 10%; text-decoration: none; margin: 5px; font-size: 150%"> Sign Up </button>
+    </div>
+<div id="login" class="modal" style='z-index: 12'>
+  <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          {{#if user}}
+            <li role="presentation"><a href="/">Dashboard</a></li>
+            <li role="presentation"><a href="/users/logout">Logout</a></li>
+          {{else}}
+            <li role="presentation"><a href="/users/login">Login</a></li>
+            <li role="presentation"><a href="/users/register">Register</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+      <h3 class="text-muted">LoginApp</h3>
+    </div>
+  </form>
+</div>
+    <div id="id01" class="modal" style='z-index: 12'>
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="container">
+          <label><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" required>
+
+          <label><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <label><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <input type="checkbox" checked="checked"> Remember me
+          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+          <div class="clearfix">
+            <button id='signUpButton' type="submit" class="signupbtn">Sign Up</button>
+            <button id='signUpButton' type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="sidebar" >
     <p> Font Size </p>
-    <input type="number" id="fontSizer" value="12"></input>
+    <input type="number" id="fontSizer" onchange=sizeMe() value="12"></input>
     <p> Font Color </p>
     <input type="color" id="fontColorer"></input>
-    <button type="button" onclick=changeColor()>Update</button>
+    <button id="update"type="button" onclick=colorMe()>Update</button>
     <p> Font Family </p>
- <select onclick=changeMyFont() class="form-control" id='fontFamilier' selected value="Arial"style="width:75%; height:5%">
+ <select onclick=fontMe() class="form-control" id='fontFamilier' selected value="Arial"style="width:75%; height:5%">
    <option value='Times New Roman'>Times New Roman</option>
    <option value='Georgia'>Georgia</option>
    <option value='Arial'>Arial</option>
@@ -65,68 +127,31 @@
    <option value='Courier New'>Courier New</option>
 </select>
     <p> Text Allignment </p>
-    <select onClick=changeMyAllignment() class="form-control" id='fontAlligner' selected value = "Left" style="width:75%; height:5%">
+    <select onClick=alignMe() class="form-control" id='fontAlligner' selected value = "Left" style="width:75%; height:5%">
       <option value='Left'>Left</option>
       <option value='Center'>Center</option>
       <option value='Right'>Right</option>
     </select>
     <p> Font Attributes </p>
-    <button onClick=boldMe() style="font-weight: bold; padding: 10px 15px;">Bold on</button>
-    <button onClick=unboldMe() style="font-weight: normal">Bold off</button>
-    <button onClick=italicMe() style="font-style: italic">Italic on</button>
-    <button onClick=unitalicMe() style="font-style: normal">Italic off</button>
-    <button onClick=clean() style="position:relative;right: 125px; top: 50px">Clean</button>
-    <p style="position: relative;top: 50px"> Actions </p>
-    <input style="top: 50px"type="range" id="rotated" onChange=rotateMe() name="points" min="0" max="180" value="90" step="20">
-    <input onClick=deleteMe() style="height:5%; top:50px;position: relative; left: 25px" type="image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/3058-200.png" />
+    <button id="styledButtons"onClick=boldMe() style="font-weight: bold; padding: 10px 15px;">Bold on</button>
+    <button id="styledButtons"onClick=unboldMe() style="font-weight: normal">Bold off</button>
+    <button id="styledButtons"onClick=italicMe() style="font-style: italic">Italic on</button>
+    <button id="styledButtons"onClick=unitalicMe() style="font-style: normal">Italic off</button>
+    <button id="styledButtons"onClick=cleanMe() style="position:relative;left: 50px;">Clean</button>
+    <p><bold> Actions </bold></p>
+    <p style="font-weight: normal; position: relative; left: 30%;"> Rotate </p>
+    <input type="range" id="rotated" style='position: relative; top: -15px;' onChange=rotateMe() name="points" min="0" max="180" value="0" step="20">
+    <input onClick=deleteMe() style="height:5%; position: relative; left: 25px; top: 100px;" type="image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/3058-200.png" />
+    <button id="styledButtons"onClick=flipMe() style="font-weight: bold; position: relative; bottom: 2px;">Flip</button>
+    <button id="styledButtons"onClick=unflipMe() style="font-weight: bold; position: relative; bottom: 2px;">Unflip</button>
+    <button id="styledButtons"onClick=unflipMe() style="font-weight: bold; width: 137px; position: relative; bottom: 2px;">Put on top layer</button>
+    <input type="range" id="borderSize" onChange=borderMe() min="0" max="20" value="2" step="2">
     </div>
-    <form action="">
+    <form action="" id="fatherOfKeyed">
     Font Size <br>
     <textarea type="text" id="Keyed" placeholder="Text"></textarea>
     </form>
-    <script>
-    function deleteMe() {
-      var elem = document.getElementById('Keyed');
-      elem.parentNode.removeChild(elem);
-      return false;
-    }
-    function boldMe() {
-        document.getElementById("Keyed").style.fontWeight = "bold";
-    }
-    function unboldMe() {
-        document.getElementById("Keyed").style.fontWeight = "normal";
-    }
-    function italicMe(){
-      document.getElementById("Keyed").style.fontStyle = "italic";
-    }
-    function unitalicMe() {
-        document.getElementById("Keyed").style.fontStyle = "normal";
-    }
-    function clean() {
-        document.getElementById("Keyed").style.fontWeight = "normal";
-        document.getElementById("Keyed").style.fontStyle = "normal";
-    }
-    function rotateMe() {
-      document.getElementById("Keyed").rotate(20);
-    }
-    function changeMyAllignment() {
-      var aligned = document.getElementById('fontAlligner').value;
-      document.getElementById("Keyed").style.textAlign = aligned;
-    }
-    function changeColor(){
-      var inputColor = document.getElementById("fontColorer").value;
-      document.getElementById("Keyed").style.color = inputColor;
-    }
-    function changeMyFont() {
-      var currentFont = document.getElementById("fontFamilier").value;
-      document.getElementById("Keyed").style.fontFamily = currentFont;
-    }
-    //alert(document.getElementById("fontColorer").style.color);
-    document.getElementById('fontSizer').onchange = function(e){
-    var keyCode = e.keyCode || e.which;
-    var currentSize = document.getElementById("fontSizer").value;
-    document.getElementById("Keyed").style.fontSize = currentSize + "px"
-  }
-    </script>
+  </div>
+
   </body>
 </html>
